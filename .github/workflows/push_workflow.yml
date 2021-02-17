@@ -28,6 +28,8 @@ jobs:
           php-version: 7.4
       - name: Install Composer Dependencies
         run: composer install -q --no-ansi --no-interaction --no-scripts --no-suggest --no-progress --prefer-dist --ignore-platform-reqs
+      - name: Update composer
+        run: composer update
       - name: Install NPM Dependencies
         run: npm install
       - name: Generate Key
