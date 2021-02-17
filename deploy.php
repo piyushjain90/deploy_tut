@@ -37,9 +37,9 @@ task('deploy:secrets', function () {
 
 // Production Server
 host('myapp.io') // Name of the server
-->hostname('104.248.172.220') // Hostname or IP address
+->hostname('3.7.45.17') // Hostname or IP address
 ->stage('production') // Deployment stage (production, staging, etc)
-->user('root') // SSH user
+->user('ubuntu') // SSH user
 ->set('deploy_path', '/var/www/my-app'); // Deploy path
 
 // Staging Server
