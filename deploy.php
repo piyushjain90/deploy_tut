@@ -43,10 +43,10 @@ host('myapp.io') // Name of the server
 ->set('deploy_path', '/var/www/my-app'); // Deploy path
 
 // Staging Server
-host('staging.myapp.io') // Name of the server
-->hostname('104.248.172.220') // Hostname or IP address
+host('3.7.45.17') // Name of the server
+->hostname('3.7.45.17') // Hostname or IP address
 ->stage('staging') // Deployment stage (production, staging, etc)
-->user('root') // SSH user
+->user('ubuntu') // SSH user
 ->set('deploy_path', '/var/www/my-app-staging'); // Deploy path
 
 after('deploy:failed', 'deploy:unlock'); // Unlock after failed deploy
