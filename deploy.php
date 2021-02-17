@@ -36,7 +36,7 @@ task('deploy:secrets', function () {
 });
 
 // Production Server
-host('myapp.io') // Name of the server
+host('3.7.45.17') // Name of the server
 ->hostname('3.7.45.17') // Hostname or IP address
 ->stage('production') // Deployment stage (production, staging, etc)
 ->user('ubuntu') // SSH user
