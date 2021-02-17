@@ -36,14 +36,14 @@ task('deploy:secrets', function () {
 });
 
 // Production Server
-host('3.7.45.17') // Name of the server
+host('prod') // Name of the server
 ->hostname('3.7.45.17') // Hostname or IP address
 ->stage('production') // Deployment stage (production, staging, etc)
 ->user('ubuntu') // SSH user
 ->set('deploy_path', '/var/www/my-app'); // Deploy path
 
 // Staging Server
-host('3.7.45.17') // Name of the server
+host('stage') // Name of the server
 ->hostname('3.7.45.17') // Hostname or IP address
 ->stage('staging') // Deployment stage (production, staging, etc)
 ->user('ubuntu') // SSH user
