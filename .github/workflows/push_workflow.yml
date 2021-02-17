@@ -42,9 +42,9 @@ jobs:
         run: node_modules/.bin/jest
   build-js-production:
     name: Build JavaScript/CSS for PRODUCTION Server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: app-tests
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/staging'
     steps:
       - uses: actions/checkout@v1
       - name: NPM Build
@@ -58,9 +58,9 @@ jobs:
           path: public
   build-js-staging:
     name: Build JavaScript/CSS for STAGING Server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: app-tests
-    if: github.ref == 'refs/heads/staging'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v1
       - name: NPM Build
@@ -74,9 +74,9 @@ jobs:
           path: public
   deploy-production:
     name: Deploy Project to PRODUCTION Server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [build-js-production, app-tests]
-    if: github.ref == 'refs/heads/master'
+    if: github.ref == 'refs/heads/staging'
     steps:
       - uses: actions/checkout@v1
       - name: Fetch built assets from Artifacts
@@ -102,9 +102,9 @@ jobs:
         run: dep deploy production --tag=${{ env.GITHUB_REF }} -vvv
   deploy-staging:
     name: Deploy Project to STAGING Server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     needs: [build-js-staging, app-tests]
-    if: github.ref == 'refs/heads/staging'
+    if: github.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v1
       - name: Fetch built assets from Artifacts
